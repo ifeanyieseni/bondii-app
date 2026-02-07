@@ -5,6 +5,7 @@ import { DashboardHeader } from "@/components/dashboard/DashboardHeader"
 import { BottomNav } from "@/components/dashboard/BottomNav"
 import { Search } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 const CHATS = [
   {
@@ -106,11 +107,13 @@ export default function ChatsPage() {
               className="flex items-center justify-between group cursor-pointer"
             >
               <div className="flex items-center gap-4">
-                <div className="relative">
-                  <img 
+                <div className="relative w-14 h-14">
+                  <Image 
                     src={chat.image} 
                     alt={chat.name}
-                    className="w-14 h-14 rounded-full object-cover border border-white/10"
+                    fill
+                    sizes="56px"
+                    className="rounded-full object-cover border border-white/10"
                   />
                   {chat.online && (
                     <div className="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-green-500 border-2 border-black" />

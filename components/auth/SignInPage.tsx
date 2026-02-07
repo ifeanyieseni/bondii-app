@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils"
 // For social icons, we'll use SVGs directly or Lucide if available. 
 // Google and Apple logos are usually custom SVGs.
 import { Facebook, Eye, EyeOff } from "lucide-react" 
+import Image from "next/image"
 
 export default function SignInPage() {
   const router = useRouter()
@@ -32,11 +33,13 @@ export default function SignInPage() {
       <div className="relative w-full h-48 bg-zinc-900 overflow-hidden rounded-b-[40px]">
         {/* Placeholder for the group image - functionality to add actual image later */}
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-white/20">
-             <img 
+             <Image 
               src="/images/login-header.png"
               alt="Welcome Back"
-              className="w-full h-full object-cover opacity-80"
-              loading="lazy"
+              fill
+              sizes="100vw"
+              className="object-cover opacity-80"
+              priority
             />
         </div>
         {/* Overlay gradient if needed */}

@@ -5,6 +5,7 @@ import { DashboardHeader } from "@/components/dashboard/DashboardHeader"
 import { BottomNav } from "@/components/dashboard/BottomNav"
 import { X, MessageSquare } from "lucide-react"
 import { CircularIconButton } from "@/components/ui/circular-icon-button"
+import Image from "next/image"
 
 const LOVED_PROFILES = [
   {
@@ -38,10 +39,12 @@ export default function LovedPage() {
             key={profile.id}
             className="relative aspect-[4/5] w-full rounded-[32px] overflow-hidden group cursor-pointer"
           >
-            <img 
+            <Image 
               src={profile.image} 
               alt={profile.name}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
             

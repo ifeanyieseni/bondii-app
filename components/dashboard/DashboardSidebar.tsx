@@ -22,6 +22,7 @@ import {
   SlidersHorizontal 
 } from "lucide-react"
 import { CircularIconButton } from "@/components/ui/circular-icon-button"
+import Image from "next/image"
 import { Profile } from "@/types/dashboard"
 
 export function DashboardSidebar() {
@@ -50,8 +51,14 @@ export function DashboardSidebar() {
         <div className="flex flex-col h-full p-6">
           {/* Profile Header */}
           <div className="w-full h-16 rounded-full bg-brand-gradient p-1 flex items-center gap-3 mb-8 cursor-pointer hover:opacity-90 transition-opacity">
-            <div className="h-full aspect-square rounded-full overflow-hidden border-2 border-white/20">
-               <img src="/images/profile-promise.png" alt="Profile" className="w-full h-full object-cover" />
+            <div className="h-full aspect-square rounded-full overflow-hidden border-2 border-white/20 relative">
+               <Image 
+                src="/images/profile-promise.png" 
+                alt="Profile" 
+                fill
+                sizes="64px"
+                className="object-cover" 
+               />
             </div>
             <div className="flex-1">
                <h3 className="font-bold text-black text-lg">Promise Onyema</h3>

@@ -6,6 +6,7 @@ import { BottomNav } from "@/components/dashboard/BottomNav"
 import { Users, Heart, Calendar, Clock, MapPin } from "lucide-react"
 import useEmblaCarousel from "embla-carousel-react"
 import { CircularIconButton } from "@/components/ui/circular-icon-button"
+import Image from "next/image"
 
 const GROUP_EVENTS = [
   {
@@ -60,13 +61,15 @@ export default function GroupPage() {
                     Create Group
                   </button>
                 </div>
-                <div className="h-full flex items-center">
-                   <img 
-                    src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=400" 
-                    alt="Group"
-                    className="h-full w-auto object-cover opacity-80" 
-                   />
-                </div>
+                 <div className="h-full relative aspect-video flex items-center pr-6">
+                    <Image 
+                     src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=400" 
+                     alt="Group"
+                     fill
+                     sizes="200px"
+                     className="object-cover opacity-80" 
+                    />
+                 </div>
              </div>
           </div>
         </div>
@@ -81,10 +84,12 @@ export default function GroupPage() {
               >
                 {/* Image Section */}
                 <div className="relative h-[200px]">
-                  <img 
+                  <Image 
                     src={event.image} 
                     alt={event.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-black/40" />
                   <CircularIconButton 

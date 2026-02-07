@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button"
 import { Profile } from "@/types/dashboard"
 import { CircularIconButton } from "@/components/ui/circular-icon-button"
 import { ChevronLeft, MoreVertical, Check } from "lucide-react"
+import Image from "next/image"
 
 interface UserProfileViewProps {
   isOpen: boolean
@@ -70,10 +71,12 @@ export function UserProfileView({ isOpen, onClose, profile }: UserProfileViewPro
         <div className="flex-1 px-6 pb-32">
           {/* Profile Card Container */}
           <div className="relative aspect-[4/5] w-full mb-8">
-            <img 
+            <Image 
               src={profile.image} 
               alt={profile.name}
-              className="w-full h-full object-cover rounded-[32px]"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover rounded-[32px]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-[32px]" />
             

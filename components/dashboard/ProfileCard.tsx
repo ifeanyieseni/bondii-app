@@ -2,6 +2,7 @@
 
 import React from "react"
 import { Check } from "lucide-react"
+import Image from "next/image"
 import { Profile } from "@/types/dashboard"
 
 interface ProfileCardProps extends Omit<Profile, 'id'> {
@@ -23,10 +24,13 @@ export function ProfileCard({
       className="relative w-full h-full rounded-[32px] overflow-hidden select-none cursor-pointer"
     >
       {/* Background Image */}
-      <img
+      <Image
         src={image}
         alt={name}
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        className="object-cover pointer-events-none"
+        priority={false}
       />
 
       {/* Gradient Overlay */}
